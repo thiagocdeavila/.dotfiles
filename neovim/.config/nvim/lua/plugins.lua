@@ -15,6 +15,7 @@ packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
   use { 'glepnir/lspsaga.nvim', branch = 'main' }
+  use { 'folke/trouble.nvim' }
 
   -- Autocompletation
   use 'hrsh7th/nvim-cmp'
@@ -35,6 +36,7 @@ packer.startup(function(use)
   -- Language Tools
   use 'akinsho/flutter-tools.nvim'
   use 'posva/vim-vue'
+  use 'pearofducks/ansible-vim'
 
   use 'norcalli/nvim-colorizer.lua' -- Color Highlighter
 end)

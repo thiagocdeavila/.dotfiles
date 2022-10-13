@@ -16,8 +16,7 @@ map('n', 'K', function() hover.render_hover_doc() end, opts)
 local finder = require('lspsaga.finder')
 map('n', 'gd', function() finder:lsp_finder() end, opts)
 
-local signature_help = require('lspsaga.signaturehelp')
-map('i', '<C-k>', function() signature_help.signature_help() end, opts)
+map('i', '<C-k>', function() vim.lsp.buf.signature_help() end, opts)
 
 local definition = require('lspsaga.definition')
 map('n', 'gp', function() definition.preview_definition() end, opts)
