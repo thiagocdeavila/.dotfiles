@@ -1,6 +1,7 @@
 vim.cmd('autocmd!')
 
 vim.wo.number = true
+vim.opt.relativenumber = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
@@ -18,3 +19,9 @@ vim.opt.tabstop = 2
 vim.opt.ai = true
 vim.opt.si = true
 vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
+vim.g.netrw_banner = 0
