@@ -2,7 +2,6 @@ local packer = require('packer')
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'nvim-lualine/lualine.nvim'
   use 'nvim-lua/plenary.nvim'
 
   -- Telescope
@@ -24,13 +23,17 @@ packer.startup(function(use)
   -- Snippets
   use 'L3MON4D3/LuaSnip'
 
-  -- Themes
+  -- Color Themes
+  use 'rebelot/kanagawa.nvim'
+  use { 'catppuccin/nvim', as = 'catppuccin' }
+
+  -- UI
   use { 'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end }
-  use 'rebelot/kanagawa.nvim'
   use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-lualine/lualine.nvim'
 
-  -- Git
+  -- Git integration
   use 'lewis6991/gitsigns.nvim'
 
   -- Language Tools
@@ -39,4 +42,11 @@ packer.startup(function(use)
   use 'pearofducks/ansible-vim'
 
   use 'norcalli/nvim-colorizer.lua' -- Color Highlighter
+  use 'editorconfig/editorconfig-vim' -- Add .editorconfig support
+  use 'numToStr/Comment.nvim' -- Comment plugin
+  use 'folke/todo-comments.nvim' -- Highlight and search for todo comments
+  use 'windwp/nvim-autopairs' -- Autopair plugin
+  use 'andymass/vim-matchup' -- Navigate and highlight matching words
+  use 'tpope/vim-surround'
+
 end)
