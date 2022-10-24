@@ -13,6 +13,9 @@ end
 
 telescope.setup {
   defaults = {
+    prompt_prefix = " ",
+    selection_caret = " ",
+    entry_prefix = " ",
     mappings = {
       n = {
         ['q'] = actions.close
@@ -43,9 +46,9 @@ telescope.setup {
 
 local map = vim.keymap.set
 
-map('n', ';f', function() builtin.find_files({}) end)
-map('n', '\\\\', function() builtin.buffers() end)
-map('n', 'sf', function()
+map('n', '<c-p>', function() builtin.find_files({}) end)
+map('n', '<c-o>', function() builtin.buffers() end)
+map('n', '<c-P>', function()
   extensions.file_browser.file_browser({
     path = '%:p:h',
     cwd = telescope_buffer_dir(),
@@ -53,7 +56,7 @@ map('n', 'sf', function()
     hidden = true
   })
 end)
-map('n', ';r', function() builtin.live_grep() end)
+map('n', '<c-f>', function() builtin.live_grep() end)
 map('n', ';t', function() builtin.help_tags() end)
 map('n', ';;', function() builtin.resume() end)
 map('n', ';e', function() builtin.diagnostics() end)

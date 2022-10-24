@@ -15,6 +15,5 @@ lspconfig.setup {
     'gopls',
     'cssls',
     'ansiblels',
-    'rubocop',
   }
 }

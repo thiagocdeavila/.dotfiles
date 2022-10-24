@@ -19,6 +19,7 @@ vim.opt.tabstop = 2
 vim.opt.ai = true
 vim.opt.si = true
 vim.opt.wrap = false
+vim.opt.signcolumn = "yes"
 
 vim.opt.swapfile = false
 vim.opt.backup = false

@@ -18,10 +18,15 @@ packer.startup(function(use)
 
   -- Autocompletation
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
+
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
 
   -- Color Themes
   use 'rebelot/kanagawa.nvim'
@@ -40,6 +45,7 @@ packer.startup(function(use)
   use 'akinsho/flutter-tools.nvim'
   use 'posva/vim-vue'
   use 'pearofducks/ansible-vim'
+  use 'folke/neodev.nvim' -- LSP for nvim lua API
 
   use 'norcalli/nvim-colorizer.lua' -- Color Highlighter
   use 'editorconfig/editorconfig-vim' -- Add .editorconfig support
