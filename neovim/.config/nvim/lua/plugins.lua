@@ -1,3 +1,5 @@
+require('bootstrap')
+
 local packer = require('packer')
 
 packer.startup(function(use)
@@ -54,5 +56,4 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs' -- Autopair plugin
   use 'andymass/vim-matchup' -- Navigate and highlight matching words
   use 'tpope/vim-surround'
-
 end)
