@@ -8,18 +8,29 @@ local status_neodev, neodev = pcall(require, 'neodev')
 if (not status_neodev) then return end
 
 local on_attach = function(_client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local nmap = function(keys, func, desc)
+    if desc then
+      desc = '[LSP] ' .. desc
+    end
 
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  local opts = { noremap = true, silent = true }
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  end
 
   -- Mappings
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<leader>f', '<Cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
+  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [d]efinition')
+  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  nmap('gr', vim.lsp.buf.references, '[G]oto [r]eferences')
+  nmap('gi', vim.lsp.buf.implementation, '[G]oto [i]mplementation')
+  nmap('gl', vim.diagnostic.open_float, 'Open diagnostic float')
+  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+
+  nmap('<leader>f', function() vim.lsp.buf.format({async = true}) end, '[f]ormat file')
+
+  nmap('<leader>K', vim.lsp.buf.hover, 'Hover Documentation')
+  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()

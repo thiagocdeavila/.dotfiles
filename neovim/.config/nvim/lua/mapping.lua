@@ -4,7 +4,7 @@ local opts = { noremap = true, silent = true }
 map.set('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
-map.set('n', '<leader>cc', '<cmd>e $MYVIMRC<cr>')
+map.set('n', '<leader>e', vim.cmd.Ex)
 
 -- Better navigation between windows
 map.set('n', '<C-h>', '<C-w>h', opts)
