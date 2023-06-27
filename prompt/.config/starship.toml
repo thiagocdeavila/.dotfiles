@@ -1,0 +1,61 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format="$directory$git_branch$character"
+right_format = """$git_status$cmd_duration"""
+add_newline = true
+
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
+
+[conda]
+format = ' [$symbol$environment](dimmed green) '
+
+# Prompt symbols 
+[character]
+success_symbol = "[](#31748f bold)"
+error_symbol = "[](#eb6f92)"
+vicmd_symbol = "[](#9ccfd8)"
+
+[directory]
+format = "[]($style)[ ](bg:#1f1d2e fg:#ea9a97)[$path](bg:#1f1d2e fg:#908caa bold)[ ]($style)"
+style = "bg:none fg:#1f1d2e"
+truncation_length = 3
+truncate_to_repo=false
+
+[git_branch]
+format = "[]($style)[[ ](bg:#1f1d2e fg:#A2DD9D bold)$branch](bg:#1f1d2e fg:#86AAEC)[ ]($style)"
+style = "bg:none fg:#1f1d2e"
+
+[git_status]
+# $all status$ahead_behind
+format = "[]($style)[$all_status$ahead_behind](bg:#1f1d2e fg:#b4befe)[ ]($style)"
+style = "bg:none fg:#1f1d2e"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
+
+[cmd_duration]
+min_time = 20
+# duration & style 
+format = "[]($style)[[神](bg:#1f1d2e fg:#eba0ac bold)$duration](bg:#1f1d2e fg:#BBC3DF)[]($style)"
+disabled = false
+style = "bg:none fg:#1f1d2e"
