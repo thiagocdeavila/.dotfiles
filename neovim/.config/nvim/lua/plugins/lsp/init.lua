@@ -25,11 +25,19 @@ return {
             },
           },
         },
+        solargraph = {
+          cmd = { os.getenv("HOME") .. '/.asdf/shims/solargraph', 'stdio' },
+        },
       },
       setup = {},
     },
     config = function(_, opts)
-      require('neodev').setup()
+      require('neodev').setup({
+        library = {
+          plugins = { 'neotest' },
+          types = true,
+        },
+      })
 
       local servers = opts.servers
       local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
