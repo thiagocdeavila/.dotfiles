@@ -20,8 +20,10 @@ return {
 
         map('n', ']h', function() gs.next_hunk() end, 'Next Hunk')
         map('n', '[h', function() gs.next_hunk() end, 'Next Hunk')
-        map({ 'n', 'v' }, '<leader>ghs', function() gs.stage_hunk() end, 'Stage Hunk')
-        map({ 'n', 'v' }, '<leader>ghr', function() gs.reset_hunk() end, 'Reset Hunk')
+        map('n', '<leader>ghs', function() gs.stage_hunk() end, 'Stage Hunk')
+        map('n', '<leader>ghr', function() gs.reset_hunk() end, 'Reset Hunk')
+        map('v', '<leader>ghs', function() gs.stage_hunk({vim.fn.line('.'), vim.fn.line('v')}) end, 'Stage Hunk')
+        map('v', '<leader>ghr', function() gs.reset_hunk({vim.fn.line('.'), vim.fn.line('v')}) end, 'Reset Hunk')
         map('n', '<leader>ghS', function() gs.stage_buffer() end, 'Stage Buffer')
         map('n', '<leader>ghR', function() gs.reset_buffer() end, 'Reset Buffer')
         map('n', '<leader>ghu', function() gs.undo_stage_hunk() end, 'Undo Stage Hunk')
