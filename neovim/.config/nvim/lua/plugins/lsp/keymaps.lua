@@ -11,10 +11,10 @@ function M.on_attach(_client, bufnr)
 
   -- Mappings
   nmap('<leader>cl', '<cmd>LspInfo<cr>', 'LSP Info')
-  nmap('gd', '<cmd>Telescope lsp_definitions<cr>', 'Goto Definition')
-  nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-  nmap('gr', vim.lsp.buf.references, 'Goto References')
-  nmap('gi', vim.lsp.buf.implements, 'Goto Implementation')
+  nmap('<leader>gd', '<cmd>Telescope lsp_definitions<cr>', 'Goto Definition')
+  nmap('<leader>gD', vim.lsp.buf.declaration, 'Goto Declaration')
+  nmap('<leader>gr', vim.lsp.buf.references, 'Goto References')
+  nmap('<leader>gi', vim.lsp.buf.implementation, 'Goto Implementation')
   nmap('<leader>gl', vim.diagnostic.open_float, 'Line Diagnostics')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
 
