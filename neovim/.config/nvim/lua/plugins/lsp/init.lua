@@ -8,6 +8,14 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'hrsh7th/cmp-nvim-lsp',
+      {
+        "folke/neoconf.nvim",
+        cmd = "Neoconf",
+        config = false,
+        dependencies = {
+          "nvim-lspconfig",
+        },
+      },
     },
     opts = {
       servers = {
@@ -28,10 +36,22 @@ return {
         solargraph = {
           cmd = { os.getenv("HOME") .. '/.asdf/shims/solargraph', 'stdio' },
         },
+        volar = {
+          filetypes = {
+            'typescript',
+            'javascript',
+            'javascriptreact',
+            'typescriptreact',
+            'vue',
+            'json',
+          },
+        },
       },
       setup = {},
     },
     config = function(_, opts)
+      require('neoconf').setup({})
+
       require('neodev').setup({
         library = {
           plugins = { 'neotest' },
@@ -47,6 +67,10 @@ return {
         local server_opts = servers[server] or {}
         server_opts.capabilities = capabilities
         server_opts.on_attach = on_attach
+
+        if require("neoconf").get(server .. ".disable") then
+          return
+        end
 
         if opts.setup[server] then
           if opts.setup[server](server, server_opts) then return end

@@ -18,7 +18,6 @@ function M.on_attach(_client, bufnr)
   nmap('<leader>gl', vim.diagnostic.open_float, 'Line Diagnostics')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
 
-  nmap('<leader>f', function() vim.lsp.buf.format({async = true}) end, 'Format File')
   nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
   nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
 
