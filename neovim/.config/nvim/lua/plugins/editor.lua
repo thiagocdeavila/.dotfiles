@@ -9,7 +9,7 @@ return {
       { '<leader>xt', '<cmd>TodoTrouble<cr>', desc = '(Trouble) Todo' },
       { '<leader>xT', '<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>', desc = '(Trouble) Todo/Fix/Fixme' },
       { '<leader>ft', '<cmd>TodoTelescope<cr>', desc = '(Telescope) Todo' },
-      { '<leader>fT', '<cmd>TodoTelescope keywords=TODO,FIX,FIXME<br>', desc = '(Telescope) Todo/Fix/Fixme' },
+      { '<leader>fT', '<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>', desc = '(Telescope) Todo/Fix/Fixme' },
     },
   },
   {
